@@ -1,0 +1,7 @@
+{
+  "name": "ewlcr",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
