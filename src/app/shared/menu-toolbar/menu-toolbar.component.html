@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{name}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="popover-menu">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+      <ion-popover trigger="popover-menu" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Perfil</ion-item>
+              <!-- <ion-item [button]="true" [detail]="false">Wallet</ion-item> -->
+              <ion-item [button]="true" (click)="logout()" [detail]="false">Cerrar Sesión</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

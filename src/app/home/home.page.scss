@@ -1,27 +1,98 @@
-#container {
-  text-align: center;
+ion-content{
+  --background: var(--ion-color-light);
+  .tracking{
+    background: #F8ECC3;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 0;
+    margin: 0;
+    .containerText{
+      padding: 20px;
+      padding-bottom: 0px;
+      .heading{
+        padding: 2px 0px;
+        h1{
+          font-weight: 600;
+        }
+      }
+      .texto{
+        padding-bottom: 0px;
+        p{
+          color: #999;
+          margin-bottom: 0px;
+          margin-top: 0px;
+        }
+      }
+    }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+    .buscador{
+      ion-col{
+        margin: 0;
+        padding: 0;
+      }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+      ion-button{
+        --border-radius: 100%;
+        width: 90%;
+        height: 90%;
+      }
+      searchbar{
+        --border-radius: 20%;
+      }
+    }
+  }
+  .content{
+    padding: 20px;
+    .servicios{
+      .slides{
+        ion-slides{
+          ion-slide:nth-child(2){
+              width: 90%important;
+          }
+        }
+        ion-card{
+          width: 100%;
+          p{
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  .heading h5{
+    font-weight: 600;
+  }
+  .recentSlides{
+    ion-slides{
+      ion-slide{
+        ion-card{
+          --background-color: #F8F9FA;
+          background-color: #F8F9FA;
+          width: 100%;
+          ion-item.paquete_data{
+            --inner-padding-start: 0px;
+            --padding-start: 0px;
+            --background: transparent;
+            background: transparent;
+          }
+          ion-row{
+            ion-col{
+              p.title{
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 1px;
+              }
+              p.note{
+                color: gray;
+                font-size: 0.7rem;
+                padding: 0;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

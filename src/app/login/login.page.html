@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="headerContainer">
+    <div class="imgContainer">
+      <img src="../../assets/login/header1.png" style="width: 100%">
+    </div>
+    <div class="logoContainer">
+      <img src="../../assets/login/logoLogin.png" style="width: 100%">
+    </div>
+  </div>
+
+  <div class="container">
+
+    <p class="ion-text-center">Inicia Sesión, empieza a ahorrar tiempo y dinero</p>
+    <hr />
+    <form (ngSubmit)="doLogin()" [formGroup]="credentials">
+      <div class="input-group">
+        <ion-item>
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-label>Email</ion-label>
+          <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+          <span *ngIf="email.errors?.required">Email es requerido</span>
+          <!-- <span *ngIf="email.errors?.email">Email es invalido</span> -->
+        </div>
+        <ion-item>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-label>Clave</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">Clave es requerida</span>
+          <span *ngIf="password.errors?.minlength">La clave debe contener al menos 6 dígitos</span>
+        </div>
+      </div>
+
+      <ion-button type="submit" expand="block" [disabled]="!credentials.valid && !disableButton">Iniciar Sesión</ion-button>
+      <ion-button type="button" expand="block" color="danger">¿No eres parte? Registrate</ion-button>
+    </form>
+  </div>
+</ion-content>

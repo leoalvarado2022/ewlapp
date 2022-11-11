@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ewlcr</string>
+    <string name="title_activity_main">ewlcr</string>
+    <string name="package_name">com.ewl.cr</string>
+    <string name="custom_url_scheme">com.ewl.cr</string>
+</resources>

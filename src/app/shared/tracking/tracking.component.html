@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">
+        Cerrar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Tracking
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="!!tracking" class="ion-container">
+    <h1 class="ion-text-center">
+      #{{tracking}}
+    </h1>
+  </div>
+  <div *ngIf="dataPaquete">
+    <ion-list lines="full">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h4>Envia</h4> 
+            <ion-note>{{dataPaquete.envia}}</ion-note>
+          </ion-col>
+          <ion-col size="6">
+            <h4>Destinatario</h4> 
+            <ion-note>{{dataPaquete.destinatario}}</ion-note>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <h4>Provincia</h4> 
+            <ion-note>{{dataPaquete.provincia}}</ion-note>
+          </ion-col>
+          <ion-col size="4">
+            <h4>Canton</h4> 
+            <ion-note>{{dataPaquete.canton}}</ion-note>
+          </ion-col>
+          <ion-col size="4">
+            <h4>Distringo</h4> 
+            <ion-note>{{dataPaquete.distrito}}</ion-note>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <h4>Dirección de Entrega</h4> 
+            <ion-note>{{dataPaquete.direccion_entrega}}</ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
+  <div *ngIf="dataTracking">
+    <ion-list lines="none">
+      <ion-item lines="none" *ngFor="let track of dataTracking">
+        <ion-label>{{track.fecha}}</ion-label>
+        <ion-label class="estatus ion-text-start">
+          {{track.estatus_texto}}
+        </ion-label>
+      </ion-item> 
+    </ion-list>
+  </div>
+</ion-content>

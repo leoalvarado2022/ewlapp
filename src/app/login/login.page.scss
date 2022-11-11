@@ -1,0 +1,49 @@
+ion-content {
+	--background: #DDE8FA;
+
+    .container{
+        padding: 20px;
+
+        p{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.input-group {
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.errors {
+	font-size: small;
+	color: #fff;
+	background: var(--ion-color-danger);
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+ion-button {
+    margin-top: 10px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 6px 6px #ccc;
+    outline: none;
+}
+
+.headerContainer{
+    position: relative;
+}
+
+.logoContainer{
+    position: absolute;
+    top: 10%;
+}
