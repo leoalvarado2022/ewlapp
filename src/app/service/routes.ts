@@ -12,6 +12,9 @@ export const routes = {
     tracking: (tr: string) => {
         return `${urlPackage}/tracking/${tr}`
     },
+    savePackage: () => {
+        return `${urlPackage}/crearPaquete`
+    },
     provincia: () => {
         return `${urlv1}/provincia`
     },

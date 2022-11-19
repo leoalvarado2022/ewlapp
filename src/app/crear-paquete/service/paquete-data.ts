@@ -5,8 +5,23 @@ import { DatosUsuario,DatosDestinatario } from 'src/app/shared/dto/Paquete.dto';
     providedIn: 'root',
 })
 export class PaqueteData {
-    private datosUsuario$ = new BehaviorSubject<DatosUsuario>(null);
-    private datosDestinatario$ = new BehaviorSubject<DatosDestinatario>(null);
+    private datosUsuario$ = new BehaviorSubject<DatosUsuario>({
+        distrito_origen: 0,
+        cod_cliente: 0,
+        envia: '',
+        telefono1: '',
+        direccion_origen: '',
+        gam: -1
+    });
+
+    private datosDestinatario$ = new BehaviorSubject<DatosDestinatario>({
+        distrito_entrega: 0,
+        destinatario: '',
+        telefono2: '',
+        direccion_entrega: '',
+        gam: -1,
+        peso: 1
+    });
 
     get datosUsuario() {
         return this.datosUsuario$.asObservable();

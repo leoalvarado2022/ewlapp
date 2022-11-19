@@ -12,6 +12,7 @@ import { PackageProvider } from '../provider/package.provider';
 import { User } from '../shared/dto/User.dto';
 import { UserProvider } from '../provider/user.provider';
 import { Router } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
 
 @Component({
   selector: 'app-home',
@@ -40,26 +41,21 @@ export class HomePage implements OnInit {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private packProvider: PackageProvider,
-    private userProvider: UserProvider,
     private router: Router
     ) {
       
     }
 
-  async getUserData() {
+  async getDatos() {
     
-      this.userProvider.currentUserData.subscribe( async (data: User) => {
-        this.UserData = data;
-        if(!!data) {
-          await this.obtenerNoEntregados(data.api_key);
-        }
-      });
+    this.UserData = await JSON.parse((await Preferences.get({key: "UserData"})).value);
+    this.obtenerNoEntregados();
     
   }
 
-  async obtenerNoEntregados(api_key) {
+  async obtenerNoEntregados() {
     try{
-      const NoEntregados = await this.packProvider.getNoEntregados(api_key);
+      const NoEntregados = await this.packProvider.getNoEntregados(this.UserData.api_key);
       this.Recents = NoEntregados.data;
     } catch(e) {
       this.Recents = [];
@@ -67,7 +63,7 @@ export class HomePage implements OnInit {
   }
 
   async ngOnInit() {
-    await this.getUserData();
+    await this.getDatos();
     
     this.services = [
       {
@@ -78,18 +74,22 @@ export class HomePage implements OnInit {
       {
         icon: "document-text-outline",
         text: "Inventario",
-        link: '#'
+        link: ''
       },
       {
         icon: "stats-chart-outline",
         text: "Reportes",
-        link: '#'
+        link: ''
       }
     ];
   }
 
+  async ionViewWillEnter() {
+    await this.obtenerNoEntregados();
+  }
+
   goTo(link: string) {
-    this.router.navigate([link]);
+    if(!!link) this.router.navigateByUrl(link);
   }
 
   goTracking(tracking: string) {

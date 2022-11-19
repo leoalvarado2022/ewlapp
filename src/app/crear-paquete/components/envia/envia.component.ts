@@ -27,7 +27,8 @@ export class EnviaComponent implements OnInit {
     this.UserData = JSON.parse((await Preferences.get({key: "UserData"})).value);
     this.getSearched = {
       cod_distrito: this.UserData.distrito,
-      nombre: this.UserData.nombre_distrito
+      nombre: this.UserData.nombre_distrito,
+      gam: this.UserData.gam
     }
     this.formulario = this.fb.group({
 			envia: [this.UserData.nombre+" "+this.UserData.apellido, [Validators.required]],

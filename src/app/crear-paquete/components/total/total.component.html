@@ -1,3 +1,80 @@
-<p>
-  total works!
-</p>
+<ion-card color="light">
+  <ion-card-header>
+    <ion-card-title>Origen</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nombre: </ion-label>
+        {{datosUsuario?.envia}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Teléfono: </ion-label>
+        {{datosUsuario?.telefono1}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Dirección: </ion-label>
+        {{datosUsuario?.direccion_origen}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Distrito: </ion-label>
+        {{datosUsuario?.ndistrito_origen}}
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-card color="light">
+  <ion-card-header>
+    <ion-card-title>Destino</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nombre: </ion-label>
+        {{datosDestinatario?.destinatario}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Teléfono: </ion-label>
+        {{datosDestinatario?.telefono2}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Dirección: </ion-label>
+        {{datosDestinatario?.direccion_entrega}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Distrito: </ion-label>
+        {{datosDestinatario?.ndistrito_entrega}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Peso: </ion-label>
+        {{datosDestinatario?.peso}}
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-card color="light">
+  <ion-card-header>
+    <ion-card-title>Resumen</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Precio: </ion-label>
+        {{Precio?.precio}} ₡
+      </ion-item>
+      <ion-item>
+        <ion-label>IVA: </ion-label>
+        {{Precio?.IVA}} ₡
+      </ion-item>
+      <ion-item>
+        <ion-label>Total: </ion-label>
+        {{Precio?.total}} ₡
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

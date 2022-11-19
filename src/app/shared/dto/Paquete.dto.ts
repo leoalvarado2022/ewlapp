@@ -47,3 +47,25 @@ export interface PaqueteGuardar extends DatosUsuario,DatosDestinatario,PaqueteDa
     para_alisto?: string;
     entrega_rapida?: string;
 }
+
+export interface Precio {
+    precio: number;
+    IVA: number;
+    total: number;
+}
+
+export interface PreciosMembresia {
+    cod_detalle_plan: number;
+    destino: string;
+    origen: string;
+    precio_base: number;
+}
+
+export interface PaqueteResponse {
+    msg: string;
+    paquete: {
+        codigo: string,
+        consecutivo: string,
+        link: string
+    };
+}

@@ -38,8 +38,7 @@ export class LoginPage implements OnInit {
 	}
 
   async doLogin() {
-    const loading = await this.openLoading();
-    (await loading).present();
+    (await this.openLoading()).present();
     this.disableButton = false;
     const email = this.email.value;
     const password = this.password.value;
@@ -48,7 +47,6 @@ export class LoginPage implements OnInit {
     }).catch(err => {
       this.openAlert("Error, Usuario/ Clave Incorrecta");
     });
-    (await loading).dismiss();
   }
 
   async openLoading() {

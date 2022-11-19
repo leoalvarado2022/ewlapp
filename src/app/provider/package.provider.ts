@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiPackage } from '../service/api.package';
 import { PaqueteTracking } from '../shared/dto/PaqueteTracking.dto';
-import { Paquete } from '../shared/dto/Paquete.dto';
+import { Paquete, PaqueteResponse } from '../shared/dto/Paquete.dto';
 import { Tracking } from '../shared/dto/Tracking.dto';
 import { ApiResponse } from '../shared/dto/ApiResponse.dto';
 import { TrackingPreview } from '../shared/dto/TrackingPreview.dto';
@@ -11,6 +11,10 @@ export class PackageProvider {
     
     constructor(private _api: ApiPackage){
         
+    }
+
+    savePackage(Paquete,api_key) : Promise<ApiResponse<PaqueteResponse>> {
+        return this._api.save(Paquete,api_key).toPromise();
     }
 
     getTracking(tr: string) : Promise<ApiResponse<PaqueteTracking<Paquete,Tracking>>> {

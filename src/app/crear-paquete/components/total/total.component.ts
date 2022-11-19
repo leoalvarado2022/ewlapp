@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DatosDestinatario, DatosUsuario } from 'src/app/shared/dto/Paquete.dto';
+import { DatosDestinatario, DatosUsuario, Precio } from 'src/app/shared/dto/Paquete.dto';
 
 @Component({
   selector: 'paquete-total',
@@ -9,8 +9,11 @@ import { DatosDestinatario, DatosUsuario } from 'src/app/shared/dto/Paquete.dto'
 export class TotalComponent implements OnInit {
   @Input() datosUsuario: DatosUsuario;
   @Input() datosDestinatario: DatosDestinatario;
+  @Input() Precio: Precio;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
 }

@@ -31,7 +31,11 @@
         </ng-template>
 
         <ng-template swiperSlide>
-            <paquete-total [datosUsuario]="dataUsuario" [datosDestinatario]="dataDestinatario"></paquete-total>
+            <paquete-total 
+                [datosUsuario]="dataUsuario" 
+                [datosDestinatario]="dataDestinatario"
+                [Precio]="PrecioPaquete">
+            </paquete-total>
         </ng-template>
     </swiper>
 </ion-content>
