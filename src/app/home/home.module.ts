@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { MenuToolbarComponent } from 'src/app/shared/menu-toolbar/menu-toolbar.component';
 import { TrackingComponent } from 'src/app/shared/tracking/tracking.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, MenuToolbarComponent, TrackingComponent]
+  declarations: [HomePage, TrackingComponent]
 })
 export class HomePageModule {}

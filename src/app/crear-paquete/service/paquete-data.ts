@@ -9,11 +9,11 @@ export class PaqueteData {
     private datosDestinatario$ = new BehaviorSubject<DatosDestinatario>(null);
 
     get datosUsuario() {
-        return this.datosUsuario$.asObservable().pipe();
+        return this.datosUsuario$.asObservable();
     }
 
     get datosDestinatario() {
-        return this.datosDestinatario$.asObservable().pipe();
+        return this.datosDestinatario$.asObservable();
     }
 
     setDatosUsuario(datosUsuario: DatosUsuario) {
