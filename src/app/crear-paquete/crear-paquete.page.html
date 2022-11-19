@@ -1,0 +1,59 @@
+<menu-toolbar name="EWL CR"></menu-toolbar>
+
+<ion-content [fullscreen]="true">
+    <div class="flex justify-content-space-between ion-margin-top relative">
+        <div class="absolute full-width line"></div>
+        <div class="flex flex-column justify-content-center full-width"
+        *ngFor="let slide of slides; let index = index; let first = first; let last = last;">
+        <span [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }"
+            class="flex flex-column align-items-center justify-content-center bold text-medium radius"
+            style="width: 30px; height: 30px;"
+            [style.background]="slide === currentSlide ? 'var(--ion-color-primary)':'var(--ion-color-light-shade)'"
+            [style.color]="slide === currentSlide ? 'var(--ion-color-light)':'var(--ion-color-dark)'"
+            [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }">
+            {{ index + 1 }}
+        </span>
+        <span [style.color]="slide === currentSlide ? 'var(--ion-color-primary)':'var(--ion-color-medium)'"
+            [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }"
+            class="flex text-medium bold ion-margin-vertical">
+            {{ slide }}
+        </span>
+        </div>
+    </div>
+    
+    <swiper *ngIf="AllDistritos.length > 0" #swiperR [allowTouchMove]="false" [slidesPerView]="1" (swiper)="setSwiperInstance($event)" (slideChangeTransitionStart)="onSlidesChanged()">
+        <ng-template swiperSlide>
+            <paquete-envia [distritos]="AllDistritos"></paquete-envia>
+        </ng-template>            
+        
+        <ng-template swiperSlide>
+            <paquete-recibe [distritos]="AllDistritos"></paquete-recibe>
+        </ng-template>
+
+        <ng-template swiperSlide>
+            <paquete-total [datosUsuario]="dataUsuario" [datosDestinatario]="dataDestinatario"></paquete-total>
+        </ng-template>
+    </swiper>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button shape="round" color="dark" [style.display]="(isBeginning) ? 'none' : ''" (click)="onBackButtonTouched()">
+                <ion-icon slot="start" name="chevron-back"></ion-icon>
+                <span>Anterior</span>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button shape="round" color="primary" [style.display]="isEnd ? 'none' : ''"
+            (click)="onNextButtonTouched()">
+                <span>Siguiente</span>
+                <ion-icon slot="end" name="chevron-forward"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-button shape="round" (click)="realizarPedido()" expand="full" color="danger" [style.display]="isEnd ? '' : 'none'">
+            <span>Realizar Pedido</span>
+            <ion-icon slot="end" name="card"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+  </ion-footer>

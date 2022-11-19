@@ -11,6 +11,7 @@ import { ApiResponse } from '../shared/dto/ApiResponse.dto';
 import { PackageProvider } from '../provider/package.provider';
 import { User } from '../shared/dto/User.dto';
 import { UserProvider } from '../provider/user.provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -39,7 +40,8 @@ export class HomePage implements OnInit {
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private packProvider: PackageProvider,
-    private userProvider: UserProvider
+    private userProvider: UserProvider,
+    private router: Router
     ) {
       
     }
@@ -75,19 +77,19 @@ export class HomePage implements OnInit {
       },
       {
         icon: "document-text-outline",
-        text: "Historial",
-        link: '/historial'
+        text: "Inventario",
+        link: '#'
       },
       {
         icon: "stats-chart-outline",
         text: "Reportes",
-        link: '/reportes'
+        link: '#'
       }
     ];
   }
 
   goTo(link: string) {
-
+    this.router.navigate([link]);
   }
 
   goTracking(tracking: string) {

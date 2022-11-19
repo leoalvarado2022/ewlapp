@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <div class="input-group">
+      
+      <ion-item (click)="abrirBuscador()">
+        <ion-label position="floating">Distrito</ion-label>
+        <ion-input [(ngModel)]="getSearched.nombre" [ngModelOptions]="{standalone: true}" readonly="readonly" placeholder="Seleccione el Distrito"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Destinatario</ion-label>
+        <ion-input type="text" formControlName="destinatario"></ion-input>
+      </ion-item>
+      <div *ngIf="(destinatario.dirty || destinatario.touched) && destinatario.errors" class="errors">
+        <span *ngIf="destinatario.errors?.required">El estinatario es requerido</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="number" formControlName="telefono2"></ion-input>
+      </ion-item>
+      <div *ngIf="(telefono2.dirty || telefono2.touched) && telefono2.errors" class="errors">
+        <span *ngIf="telefono2.errors?.required">El teléfono es requerido</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-textarea formControlName="direccion_entrega"></ion-textarea>
+      </ion-item>
+      <div *ngIf="(direccion_entrega.dirty || direccion_entrega.touched) && direccion_entrega.errors" class="errors">
+        <span *ngIf="direccion_entrega.errors?.required">la dirección es requerida</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Peso del Paquete</ion-label>
+        <ion-input type="number" formControlName="peso"></ion-input>
+      </ion-item>
+      <div *ngIf="(peso.dirty || peso.touched) && peso.errors" class="errors">
+        <span *ngIf="peso.errors?.required">el peso es requerido</span>
+        <span *ngIf="peso.errors?.max">el peso máximo es de 10 Kilogramos</span>
+      </div>
+    </div>
+  </form>
+</div>

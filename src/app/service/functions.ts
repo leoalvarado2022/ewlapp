@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders  } from '@angular/common/http';
 import * as crypto from 'crypto';
 
-
 @Injectable()
 export class Functions {
   httpOptions: any;
@@ -22,8 +21,8 @@ export class Functions {
   }
 
   makeUrl(url,api_key,params?: Array<{key: string,value:string}>) {
-	let _p : string = '';
-	if(!!params) _p = (params.map( a => `&${a.key}=${a.value}`)).join("");
+    let _p : string = '';
+    if(!!params) _p = (params.map( a => `&${a.key}=${a.value}`)).join("");
     return `${url}?api_key=${api_key}${_p}`;
   }
 	

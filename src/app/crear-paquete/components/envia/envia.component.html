@@ -1,0 +1,38 @@
+<div class="container">
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <div class="input-group">
+      
+      <ion-item (click)="abrirBuscador()">
+        <ion-label position="floating">Distrito</ion-label>
+        <ion-input [(ngModel)]="getSearched.nombre" [ngModelOptions]="{standalone: true}" readonly="readonly" placeholder="Seleccione el Distrito"></ion-input>
+      </ion-item>
+      <div *ngIf="getSearched.cod_distrito < 1" class="errors">
+        <span >Distrito es requerido</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Quien Envía</ion-label>
+        <ion-input type="text" formControlName="envia"></ion-input>
+      </ion-item>
+      <div *ngIf="(envia.dirty || envia.touched) && envia.errors" class="errors">
+        <span *ngIf="envia.errors?.required">Quien envia es requerido</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="number" formControlName="telefono1"></ion-input>
+      </ion-item>
+      <div *ngIf="(telefono1.dirty || telefono1.touched) && telefono1.errors" class="errors">
+        <span *ngIf="telefono1.errors?.required">Teléfono es requerida</span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-textarea formControlName="direccion_origen"></ion-textarea>
+      </ion-item>
+      <div *ngIf="(direccion_origen.dirty || direccion_origen.touched) && direccion_origen.errors" class="errors">
+        <span *ngIf="direccion_origen.errors?.required">la Dirección es requerido</span>
+      </div>
+    </div>
+  </form>
+</div>

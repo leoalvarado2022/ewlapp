@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserProvider } from '../provider/user.provider';
-import * as C from 'src/app/shared/constants';
+import { AlertService } from '../shared/services/alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-		private alertCtrl: AlertController,
+		private alertCtrl: AlertService,
 		private router: Router,
 		private loadingCtrl: LoadingController,
     private userProvider: UserProvider
@@ -59,13 +59,7 @@ export class LoginPage implements OnInit {
   }
 
   async openAlert(msg: string) {
-    
-    const alert = await this.alertCtrl.create({
-      message: msg,
-      header: C.APP_NAME,
-      buttons: [C.OK_ALERT_BUTTON],
-    });
-    await alert.present();
+    await this.alertCtrl.infoMessage(msg);
   }
 
 }

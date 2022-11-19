@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{nombreModal}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="modal.dismiss()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-searchbar placeholder="Buscador..." (keyup)="filterData($event)"></ion-searchbar>
+  </ion-item>
+  <span *ngIf="filtered.length == 0" style="color: var(--ion-color-danger)">
+    DEBE ESCRIBIR EN EL BUSCADOR
+  </span>
+
+  <div>
+    <ion-list *ngFor="let data of filtered">
+      <ion-item (click)="modal.dismiss(data,'selected')">
+        <ion-label>{{data.nombre}}</ion-label>
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

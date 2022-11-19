@@ -11,4 +11,8 @@ export interface User {
   membresia: Array<any>;
   plan: Array<any>;
   metadatos: Array<any>;
+  telefono_movil?: string;
+  direccion_completa?: string;
+  distrito?: number;
+  nombre_distrito?: string;
 }

@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   },
+  {
+    path: 'crear-paquete',
+    loadChildren: () => import('./crear-paquete/crear-paquete.module').then( m => m.CrearPaquetePageModule)
+  },
 ];
 
 @NgModule({

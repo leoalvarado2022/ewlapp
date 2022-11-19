@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Functions } from './service/functions';
 import { UserProvider } from './provider/user.provider';
 import { PackageProvider } from './provider/package.provider';
+import { AlertService } from './shared/services/alert/alert.service';
+import { GlobalProvider } from './provider/global.provider';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +25,10 @@ import { PackageProvider } from './provider/package.provider';
   ],
   providers: [
     Functions,
+    AlertService,
     UserProvider,
     PackageProvider,
+    GlobalProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
